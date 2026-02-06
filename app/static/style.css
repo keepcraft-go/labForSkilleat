@@ -575,3 +575,99 @@ h2 {
   background: #fbbf24;
   color: #fff;
 }
+
+@media (max-width: 900px) {
+  nav .nav-container {
+    max-width: 100%;
+  }
+
+  .container,
+  .container.full-width {
+    max-width: 100%;
+  }
+
+  h1,
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  nav .nav-container {
+    padding: 0 14px;
+  }
+
+  nav .nav-links {
+    gap: 16px;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 24px 14px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  h1,
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+
+  .result-score {
+    font-size: 2.6rem;
+  }
+
+  .news-card-image {
+    height: 160px;
+  }
+
+  .news-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  nav .nav-links {
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .option {
+    padding: 12px 12px;
+  }
+}
