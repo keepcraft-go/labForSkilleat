@@ -602,6 +602,18 @@ h2 {
   .news-grid {
     grid-template-columns: 1fr;
   }
+
+  .ranking-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ranking-panel {
+    padding: 24px !important;
+  }
+
+  .ranking-cta {
+    padding: 24px !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -643,6 +655,14 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+  }
+
+  .ranking-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .ranking-cta h3 {
+    font-size: 1.25rem;
   }
 
   table {
