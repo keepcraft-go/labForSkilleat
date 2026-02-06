@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>기술소식 - Feeltech</title>
+  <title>기술소식 - Lab-Skilleat</title>
   <link rel="stylesheet" href="/static/style.css" />
   <style>
     .loading-message {
@@ -47,7 +47,7 @@
 <body>
   <nav>
     <div class="nav-container">
-      <a href="/" class="logo">Feeltech</a>
+      <a href="/" class="logo">Lab-Skilleat</a>
       <ul class="nav-links">
         <li><a href="/">메인</a></li>
         <li><a href="/quiz">퀴즈</a></li>
@@ -59,7 +59,7 @@
   <div class="container full-width">
     <div style="margin-bottom: 50px;">
       <h2 style="font-size: 2.5rem; margin-bottom: 15px;">매일 매일 최신 기술 소식을 확인해보세요</h2>
-      <p style="color: #9ca3af; font-size: 1.05rem;">오늘의 핫 기술 뉴스</p>
+      <p style="color: #9ca3af; font-size: 1.05rem;">매일 오전 8시 그 날의 HOT 기술 뉴스를 확인할 수 있습니다.</p>
     </div>
 
     {% if news_items %}
@@ -77,7 +77,7 @@
               {% endif %}
             </div>
             <div class="news-card-content">
-              <div class="news-card-source">{{ item.source }}</div>
+              <div class="news-card-source"></div>
               {% if item.image_credit_name and item.image_credit_url %}
                 <div class="news-card-credit">
                   Photo by <a href="{{ item.image_credit_url }}" target="_blank" rel="noopener noreferrer">{{ item.image_credit_name }}</a> on Unsplash

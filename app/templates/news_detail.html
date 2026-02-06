@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ news.title }} - Feeltech</title>
+  <title>{{ news.title }} - Lab-Skilleat</title>
   <link rel="stylesheet" href="/static/style.css" />
   <style>
     .news-detail-container {
@@ -235,7 +235,7 @@
 <body>
   <nav>
     <div class="nav-container">
-      <a href="/" class="logo">Feeltech</a>
+      <a href="/" class="logo">Lab-Skilleat</a>
       <ul class="nav-links">
         <li><a href="/">메인</a></li>
         <li><a href="/quiz">퀴즈</a></li>
@@ -261,9 +261,7 @@
       <h1 class="news-detail-title">{{ news.title }}</h1>
       
       <div class="news-detail-meta">
-        <div class="news-detail-meta-item">
-          <span class="news-detail-badge">{{ news.source }}</span>
-        </div>
+
         <div class="news-detail-meta-item">
           📅 {{ news.date }}
         </div>
@@ -280,7 +278,7 @@
           {% if news.description_html %}
             {{ news.description_html | safe }}
           {% else %}
-            {{ news.description }}
+            {{ news.description }}ㄹ
           {% endif %}
         </div>
       </div>
