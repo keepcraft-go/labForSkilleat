@@ -19,6 +19,22 @@
   </nav>
 
   <div class="container">
+    {% if news_items %}
+      <div class="news-ticker">
+        <div class="news-ticker-label">오늘의 기술 핫뉴스</div>
+        <div class="news-ticker-track">
+          <div class="news-ticker-items">
+            {% for item in news_items %}
+              <a href="/news/{{ item.id }}" class="news-ticker-item">{{ item.title }}</a>
+            {% endfor %}
+            {% for item in news_items %}
+              <a href="/news/{{ item.id }}" class="news-ticker-item">{{ item.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
     <div class="hero" style="margin-top: 40px;">
       <h1>당신이 기술에 대한 감을<br>잡을 때까지 도와줍니다</h1>
       <p>Kubernetes, Docker, DevOps부터 최신 기술 동향까지<br>한 곳에서 배우고 성장하세요</p>
