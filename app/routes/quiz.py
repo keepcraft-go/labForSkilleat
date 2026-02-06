@@ -32,7 +32,7 @@ def start():
         user_id = row["id"]
         session["nickname_exists"] = True
     else:
-        now = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+        now = datetime.now().strftime("%Y-%m-%d %H:%M")
         cursor = db.execute(
             "INSERT INTO users (nickname, created_at) VALUES (?, ?)",
             (nickname, now),
@@ -130,7 +130,7 @@ def result():
 
     user_id = session.get("user_id")
     nickname = session.get("nickname", "")
-    now = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     db.execute(
         "INSERT INTO attempts (user_id, score, weak_tags, created_at) VALUES (?, ?, ?, ?)",
