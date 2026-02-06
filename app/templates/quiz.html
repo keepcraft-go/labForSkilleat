@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>퀴즈 - Feeltech</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Feeltech</a>
+      <ul class="nav-links">
+        <li><a href="/">메인</a></li>
+        <li><a href="/quiz" class="active">퀴즈</a></li>
+        <li><a href="/news">기술소식</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      {% if nickname_exists %}
+        <div style="background: #1f2937; border: 1px solid #3b82f6; color: #dbeafe; padding: 12px 14px; border-radius: 8px; margin-bottom: 16px;">
+          이미 존재하는 닉네임입니다. 이번 도전 결과가 최고 점수로 갱신됩니다.
+        </div>
+      {% endif %}
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div class="question-number">문제 {{ index }} / {{ total }}</div>
+        <a href="/quiz/quit" style="
+          color: #ef4444;
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-weight: 600;
+          padding: 6px 12px;
+          border: 1px solid #ef4444;
+          border-radius: 6px;
+          transition: all 0.2s ease;
+        "
+        onmouseover="this.style.background='#ef4444'; this.style.color='#fff';"
+        onmouseout="this.style.background='transparent'; this.style.color='#ef4444';"
+        onclick="return confirm('정말 나가시겠습니까? 진행 상황이 저장되지 않습니다.');"
+        >나가기</a>
+      </div>
+      
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: {{ (index / total) * 100 }}%"></div>
+      </div>
+
+      <h2>{{ question["question"] }}</h2>
+
+      <form action="/quiz/quiz" method="post">
+        <div class="option">
+          <input 
+            type="radio" 
+            id="choice_a"
+            name="answer" 
+            value="A" 
+            required 
+          />
+          <label for="choice_a">{{ question["choice_a"] }}</label>
+        </div>
+
+        <div class="option">
+          <input 
+            type="radio" 
+            id="choice_b"
+            name="answer" 
+            value="B" 
+          />
+          <label for="choice_b">{{ question["choice_b"] }}</label>
+        </div>
+
+        <div class="option">
+          <input 
+            type="radio" 
+            id="choice_c"
+            name="answer" 
+            value="C" 
+          />
+          <label for="choice_c">{{ question["choice_c"] }}</label>
+        </div>
+
+        <div class="option">
+          <input 
+            type="radio" 
+            id="choice_d"
+            name="answer" 
+            value="D" 
+          />
+          <label for="choice_d">{{ question["choice_d"] }}</label>
+        </div>
+
+        <button type="submit">다음</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

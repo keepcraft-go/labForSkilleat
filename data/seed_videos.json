@@ -1,0 +1,332 @@
+[
+  {
+    "concept_tag": "pods",
+    "youtube_url": "https://www.youtube.com/watch?v=sqhpGpqcDCk",
+    "title": "쿠버네티스에서 Pod가 뭐야? (초보 필수 개념!)"
+  },
+  {
+    "concept_tag": "deployments",
+    "youtube_url": "https://www.youtube.com/watch?v=YruCpt90i0g",
+    "title": "쿠버네티스 Deployment 진짜 쉽게 배우고 익히고 이해하기!"
+  },
+  {
+    "concept_tag": "replicaset",
+    "youtube_url": "https://www.youtube.com/watch?v=9VX2ZpET2V4",
+    "title": "쿠버네티스에서 파드를 관리하는 레플리카셋"
+  },
+  {
+    "concept_tag": "services",
+    "youtube_url": "https://www.youtube.com/watch?v=1v-bMDZsGZY",
+    "title": "9분만에 끝내는 쿠버네티스 서비스 기초 개념"
+  },
+  {
+    "concept_tag": "networking",
+    "youtube_url": "https://www.youtube.com/watch?v=3pchqCScOt0",
+    "title": "9분만에 이해하는 쿠버네티스 네트워크 구조 한눈에 보기!"
+  },
+  {
+    "concept_tag": "ingress",
+    "youtube_url": "https://www.youtube.com/watch?v=Js78oAKGWLA",
+    "title": "9분안에 쿠버네티스 Ingress 완전 정복"
+  },
+  {
+    "concept_tag": "volumes",
+    "youtube_url": "https://www.youtube.com/watch?v=_w6EWPJv2ZI",
+    "title": "쿠버네티스에서 볼륨이 필요한 이유"
+  },
+  {
+    "concept_tag": "persistent-volumes",
+    "youtube_url": "https://www.youtube.com/watch?v=wnXrOP_nPe0",
+    "title": "21. 영구 볼륨 (Persistent Volume) 이해하기"
+  },
+  {
+    "concept_tag": "configmaps",
+    "youtube_url": "https://www.youtube.com/watch?v=5rYodlzojHk",
+    "title": "16. ConfigMap부터 이해해야 Secret도 이해하고 Volume도 이해하지!"
+  },
+  {
+    "concept_tag": "secrets",
+    "youtube_url": "https://www.youtube.com/watch?v=xHnyYHmjyqo",
+    "title": "17. ConfigMap 이해했다면 Secret을 이해할 차례!"
+  },
+  {
+    "concept_tag": "namespaces",
+    "youtube_url": "https://www.youtube.com/watch?v=dyRl0WAPizI",
+    "title": "쿠버네티스 네임스페이스 완전 정복: 분리, 충돌 방지, 그리고 보안까지"
+  },
+  {
+    "concept_tag": "kubectl",
+    "youtube_url": "https://www.youtube.com/watch?v=ehs15mRoMk0",
+    "title": "쿠버네티스 초보자를 위한 필수 kubectl 명령어 TOP3!"
+  },
+  {
+    "concept_tag": "architecture",
+    "youtube_url": "https://www.youtube.com/watch?v=HV52dscMi2w",
+    "title": "쿠버네티스 기본 용어 정리! 노드, 컨트롤플레인, 클러스터"
+  },
+  {
+    "concept_tag": "rbac",
+    "youtube_url": "https://www.youtube.com/watch?v=HpSXH74Hb1s",
+    "title": "쿠버네티스 보안의 핵심 RBAC"
+  },
+  {
+    "concept_tag": "service-accounts",
+    "youtube_url": "https://www.youtube.com/watch?v=q90AH1m3aI8",
+    "title": "초보도 바로 이해하는 ServiceAccount 핵심 정리! (CKA 준비자라면 꼭)"
+  },
+  {
+    "concept_tag": "daemonset",
+    "youtube_url": "https://www.youtube.com/watch?v=FEa7jqMivPw",
+    "title": "26. 쿠버네티스 초보자도 이해하는 데몬셋 개념 이해하기"
+  },
+  {
+    "concept_tag": "network-policies",
+    "youtube_url": "https://www.youtube.com/watch?v=QE9KM_hp6pw",
+    "title": "쿠버네티스 네트워크 보안 첫걸음: NetworkPolicy 완벽 입문"
+  },
+  {
+    "concept_tag": "troubleshooting",
+    "youtube_url": "https://www.youtube.com/watch?v=zeqvQBlc4U8",
+    "title": "쿠버네티스 로그 뒤지지 말고 뽑아내자! grep 제대로 쓰는 법"
+  },
+  {
+    "concept_tag": "scheduling",
+    "youtube_url": "https://www.youtube.com/watch?v=jUBfJo1rwXQ",
+    "title": "쿠버네티스 핵심 개념인데.. 발음이 안됩니다!!!!!"
+  },
+  {
+    "concept_tag": "container-runtime",
+    "youtube_url": "https://www.youtube.com/watch?v=C3DbbV-CoPE",
+    "title": "컨테이너 도대체 무엇인가"
+  },
+  {
+    "concept_tag": "images",
+    "youtube_url": "https://www.youtube.com/watch?v=8RyxJDIIigg",
+    "title": "컨테이너 이미지 구조 1분만 집중해보실래요?"
+  },
+  {
+    "concept_tag": "statefulset",
+    "youtube_url": "https://www.youtube.com/watch?v=9cTlsObpK3I",
+    "title": "쿠버네티스 파드만으로는 부족, 레플리카셋과 디플로이먼트 개념 파악하기"
+  },
+  {
+    "concept_tag": "jobs",
+    "youtube_url": "https://www.youtube.com/watch?v=3xclzj-dpEk",
+    "title": "12. CKA 준비? 지금까지 배웠던 개념 잡는 실습 - 왕초보편"
+  },
+  {
+    "concept_tag": "cronjobs",
+    "youtube_url": "https://www.youtube.com/watch?v=3xclzj-dpEk",
+    "title": "12. CKA 준비? 지금까지 배웠던 개념 잡는 실습 - 왕초보편"
+  },
+  {
+    "concept_tag": "probes",
+    "youtube_url": "https://www.youtube.com/watch?v=6pjPr5QoFL8",
+    "title": "27. 쿠버네티스 파드 상태 확인하는 완벽한 방법 알아보기 - 이론편"
+  },
+  {
+    "concept_tag": "resource-management",
+    "youtube_url": "https://www.youtube.com/watch?v=r5DDurGhfVg",
+    "title": "쿠버네티스 구조 다시 한번 정리해볼까요?"
+  },
+  {
+    "concept_tag": "api-server",
+    "youtube_url": "https://www.youtube.com/watch?v=xYY17GmX-4o",
+    "title": "04. 쿠버네티스 클러스터와 통신하는 방법 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "node-components",
+    "youtube_url": "https://www.youtube.com/watch?v=Vidq3uHMUsc",
+    "title": "03. 쿠버네티스 구조와 용어 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "controllers",
+    "youtube_url": "https://www.youtube.com/watch?v=Vidq3uHMUsc",
+    "title": "03. 쿠버네티스 구조와 용어 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "nodes",
+    "youtube_url": "https://www.youtube.com/watch?v=HV52dscMi2w",
+    "title": "쿠버네티스 기본 용어 정리! 노드, 컨트롤플레인, 클러스터"
+  },
+  {
+    "concept_tag": "labels",
+    "youtube_url": "https://www.youtube.com/watch?v=r3zTNk-pwd0",
+    "title": "쿠버네티스 파드 관리가 쉬워지는 비밀 공개!"
+  },
+  {
+    "concept_tag": "annotations",
+    "youtube_url": "https://www.youtube.com/watch?v=TIxEUYiED2I",
+    "title": "09. yaml파일 구조 파악과 kubectl 사용법 - 왕초보편"
+  },
+  {
+    "concept_tag": "manifests",
+    "youtube_url": "https://www.youtube.com/watch?v=TXcLztStF70",
+    "title": "쿠버네티스 yaml 파일 손쉽게 만드는 법"
+  },
+  {
+    "concept_tag": "init-containers",
+    "youtube_url": "https://www.youtube.com/watch?v=WxqmBUtGkL8",
+    "title": "07. 파드의 생애주기와 특징 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "storage-class",
+    "youtube_url": "https://www.youtube.com/watch?v=lVotC7MUcus",
+    "title": "[종합편] Volume 이해하기( PV, PVC, Storage Class)"
+  },
+  {
+    "concept_tag": "autoscaling",
+    "youtube_url": "https://www.youtube.com/watch?v=YruCpt90i0g",
+    "title": "쿠버네티스 Deployment 진짜 쉽게 배우고 익히고 이해하기!"
+  },
+  {
+    "concept_tag": "taints-tolerations",
+    "youtube_url": "https://www.youtube.com/watch?v=r5DDurGhfVg",
+    "title": "쿠버네티스 구조 다시 한번 정리해볼까요?"
+  },
+  {
+    "concept_tag": "affinity",
+    "youtube_url": "https://www.youtube.com/watch?v=r5DDurGhfVg",
+    "title": "쿠버네티스 구조 다시 한번 정리해볼까요?"
+  },
+  {
+    "concept_tag": "pod-disruption-budget",
+    "youtube_url": "https://www.youtube.com/watch?v=BdE745LqNMc",
+    "title": "11. 디플로이먼트(deployment) 개념 정리 - 왕초보편"
+  },
+  {
+    "concept_tag": "limit-range",
+    "youtube_url": "https://www.youtube.com/watch?v=r5DDurGhfVg",
+    "title": "쿠버네티스 구조 다시 한번 정리해볼까요?"
+  },
+  {
+    "concept_tag": "resource-quotas",
+    "youtube_url": "https://www.youtube.com/watch?v=Y5dvie8tkeE",
+    "title": "25. 쿠버네티스 네임스페이스 완벽 정복하기"
+  },
+  {
+    "concept_tag": "scaling",
+    "youtube_url": "https://www.youtube.com/watch?v=YruCpt90i0g",
+    "title": "쿠버네티스 Deployment 진짜 쉽게 배우고 익히고 이해하기!"
+  },
+  {
+    "concept_tag": "design-patterns",
+    "youtube_url": "https://www.youtube.com/watch?v=r3zTNk-pwd0",
+    "title": "쿠버네티스 파드 관리가 쉬워지는 비밀 공개!"
+  },
+  {
+    "concept_tag": "monitoring",
+    "youtube_url": "https://www.youtube.com/watch?v=kEZy-ua8hLI",
+    "title": "28. 쿠버네티스 파드 상태 확인하는 완벽한 방법 알아보기 - 실습편"
+  },
+  {
+    "concept_tag": "node-management",
+    "youtube_url": "https://www.youtube.com/watch?v=HV52dscMi2w",
+    "title": "쿠버네티스 기본 용어 정리! 노드, 컨트롤플레인, 클러스터"
+  },
+  {
+    "concept_tag": "security",
+    "youtube_url": "https://www.youtube.com/watch?v=bIJGAPkEd9k",
+    "title": "쿠버네티스 권한 제어(RBAC) 완전 정리 | Dashboard 활용 실습"
+  },
+  {
+    "concept_tag": "crd",
+    "youtube_url": "https://www.youtube.com/watch?v=q9GsNAIEPUE",
+    "title": "CRD 없으면 쿠버네티스는 Gateway를 절대 모른다"
+  },
+  {
+    "concept_tag": "operators",
+    "youtube_url": "https://www.youtube.com/watch?v=q9GsNAIEPUE",
+    "title": "CRD 없으면 쿠버네티스는 Gateway를 절대 모른다"
+  },
+  {
+    "concept_tag": "high-availability",
+    "youtube_url": "https://www.youtube.com/watch?v=Vidq3uHMUsc",
+    "title": "03. 쿠버네티스 구조와 용어 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "etcd",
+    "youtube_url": "https://www.youtube.com/watch?v=Vidq3uHMUsc",
+    "title": "03. 쿠버네티스 구조와 용어 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "admission-controllers",
+    "youtube_url": "https://www.youtube.com/watch?v=HpSXH74Hb1s",
+    "title": "쿠버네티스 보안의 핵심 RBAC"
+  },
+  {
+    "concept_tag": "api-aggregation",
+    "youtube_url": "https://www.youtube.com/watch?v=xYY17GmX-4o",
+    "title": "04. 쿠버네티스 클러스터와 통신하는 방법 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "service-mesh",
+    "youtube_url": "https://www.youtube.com/watch?v=3pchqCScOt0",
+    "title": "9분만에 이해하는 쿠버네티스 네트워크 구조 한눈에 보기!"
+  },
+  {
+    "concept_tag": "deployment-strategies",
+    "youtube_url": "https://www.youtube.com/watch?v=BdE745LqNMc",
+    "title": "11. 디플로이먼트(deployment) 개념 정리 - 왕초보편"
+  },
+  {
+    "concept_tag": "garbage-collection",
+    "youtube_url": "https://www.youtube.com/watch?v=Vidq3uHMUsc",
+    "title": "03. 쿠버네티스 구조와 용어 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "qos",
+    "youtube_url": "https://www.youtube.com/watch?v=r5DDurGhfVg",
+    "title": "쿠버네티스 구조 다시 한번 정리해볼까요?"
+  },
+  {
+    "concept_tag": "eviction",
+    "youtube_url": "https://www.youtube.com/watch?v=r5DDurGhfVg",
+    "title": "쿠버네티스 구조 다시 한번 정리해볼까요?"
+  },
+  {
+    "concept_tag": "runtime",
+    "youtube_url": "https://www.youtube.com/watch?v=C3DbbV-CoPE",
+    "title": "컨테이너 도대체 무엇인가"
+  },
+  {
+    "concept_tag": "storage",
+    "youtube_url": "https://www.youtube.com/watch?v=n9itDYk020A",
+    "title": "쿠버네티스 스토리지, 뭐가 다른 걸까? (Volume vs PV vs PVC)"
+  },
+  {
+    "concept_tag": "lifecycle",
+    "youtube_url": "https://www.youtube.com/watch?v=WxqmBUtGkL8",
+    "title": "07. 파드의 생애주기와 특징 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "device-plugins",
+    "youtube_url": "https://www.youtube.com/watch?v=Vidq3uHMUsc",
+    "title": "03. 쿠버네티스 구조와 용어 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "feature-gates",
+    "youtube_url": "https://www.youtube.com/watch?v=bsmr-rAYZJ0",
+    "title": "쿠버네티스 문서 볼 때 이거 먼저 확인 안 하면 큰일나요!"
+  },
+  {
+    "concept_tag": "scheduler-framework",
+    "youtube_url": "https://www.youtube.com/watch?v=jUBfJo1rwXQ",
+    "title": "쿠버네티스 핵심 개념인데.. 발음이 안됩니다!!!!!"
+  },
+  {
+    "concept_tag": "static-pods",
+    "youtube_url": "https://www.youtube.com/watch?v=Vidq3uHMUsc",
+    "title": "03. 쿠버네티스 구조와 용어 감잡기 - 왕초보편"
+  },
+  {
+    "concept_tag": "api-versions",
+    "youtube_url": "https://www.youtube.com/watch?v=bsmr-rAYZJ0",
+    "title": "쿠버네티스 문서 볼 때 이거 먼저 확인 안 하면 큰일나요!"
+  },
+  {
+    "concept_tag": "deprecated-features",
+    "youtube_url": "https://www.youtube.com/watch?v=bsmr-rAYZJ0",
+    "title": "쿠버네티스 문서 볼 때 이거 먼저 확인 안 하면 큰일나요!"
+  }
+]

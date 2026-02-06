@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feeltech Quiz - Kubernetes 학습 플랫폼</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Feeltech</a>
+      <ul class="nav-links">
+        <li><a href="/">메인</a></li>
+        <li><a href="/quiz/" class="active">퀴즈</a></li>
+        <li><a href="/news">기술소식</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Feeltech</h1>
+      <p>Kubernetes 개념을 효율적으로 학습하세요</p>
+    </header>
+
+    {% if error %}
+      <div class="card">
+        <p class="error">{{ error }}</p>
+      </div>
+    {% endif %}
+
+    <form action="/quiz/start" method="post" class="card">
+      <div class="form-group">
+        <label for="nickname">닉네임</label>
+        <input 
+          type="text" 
+          id="nickname"
+          name="nickname" 
+          placeholder="닉네임을 입력하세요" 
+          required 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="topic">학습 주제</label>
+        <select id="topic" name="topic">
+          <option value="all">전체</option>
+          {% for topic in topics %}
+            <option value="{{ topic }}">{{ topic }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>난이도</label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px;">
+          <label style="
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            background: #262626;
+            border: 2px solid #3a3a3a;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 400;
+            margin: 0;
+          "
+          onchange="this.style.borderColor='#3b82f6'; this.style.background='#2a3a4a';"
+          onmouseover="this.style.borderColor='#3b82f6';"
+          onmouseout="this.style.borderColor='#3a3a3a';"
+          >
+            <input type="radio" name="difficulty" value="easy" checked style="margin-right: 8px; cursor: pointer;" />
+            <span>하</span>
+          </label>
+          <label style="
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            background: #262626;
+            border: 2px solid #3a3a3a;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 400;
+            margin: 0;
+          "
+          onmouseover="this.style.borderColor='#3b82f6';"
+          onmouseout="this.style.borderColor='#3a3a3a';"
+          >
+            <input type="radio" name="difficulty" value="medium" style="margin-right: 8px; cursor: pointer;" />
+            <span>중</span>
+          </label>
+          <label style="
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            background: #262626;
+            border: 2px solid #3a3a3a;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 400;
+            margin: 0;
+          "
+          onmouseover="this.style.borderColor='#3b82f6';"
+          onmouseout="this.style.borderColor='#3a3a3a';"
+          >
+            <input type="radio" name="difficulty" value="hard" style="margin-right: 8px; cursor: pointer;" />
+            <span>상</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit">시작하기</button>
+    </form>
+
+    <div class="links">
+      <a href="/hall/">명예의 전당</a>
+    </div>
+  </div>
+</body>
+</html>

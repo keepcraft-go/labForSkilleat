@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>기술소식 - Feeltech</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .loading-message {
+      text-align: center;
+      padding: 60px 20px;
+      color: #fbbf24;
+      font-size: 1.1rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #fbbf24;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Feeltech</a>
+      <ul class="nav-links">
+        <li><a href="/">메인</a></li>
+        <li><a href="/quiz">퀴즈</a></li>
+        <li><a href="/news" class="active">기술소식</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container full-width">
+    <div style="margin-bottom: 50px;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 15px;">매일 매일 최신 기술 소식을 확인해보세요</h2>
+      <p style="color: #9ca3af; font-size: 1.05rem;">오늘의 핫 기술 뉴스</p>
+    </div>
+
+    {% if news_items %}
+      <div class="news-grid">
+        {% for item in news_items %}
+          <div class="news-card">
+            <div class="news-card-image">
+              {% if item.image_url %}
+                <img src="{{ item.image_url }}" alt="{{ item.image_alt or item.title }}" loading="lazy" />
+                {% if item.emoji %}
+                  <span class="news-emoji-badge">{{ item.emoji }}</span>
+                {% endif %}
+              {% else %}
+                <span class="news-emoji">{{ item.emoji or "📰" }}</span>
+              {% endif %}
+            </div>
+            <div class="news-card-content">
+              <div class="news-card-source">{{ item.source }}</div>
+              {% if item.image_credit_name and item.image_credit_url %}
+                <div class="news-card-credit">
+                  Photo by <a href="{{ item.image_credit_url }}" target="_blank" rel="noopener noreferrer">{{ item.image_credit_name }}</a> on Unsplash
+                </div>
+              {% endif %}
+              <h3 class="news-card-title">{{ item.title }}</h3>
+              <p class="news-card-description">{{ item.get('short_description', item.description[:100]) }}</p>
+              <div class="news-card-footer">
+                <span class="news-card-date">{{ item.date }}</span>
+                <a href="/news/{{ item.id }}" class="news-card-link">자세히 보기</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="loading-message">
+        <span class="loading-spinner"></span>
+        최신 뉴스를 불러오고 있습니다... (첫 로딩 시 30초가 소요될 수 있습니다)
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

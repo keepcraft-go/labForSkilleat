@@ -1,0 +1,22 @@
+.env
+.cache/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.sqlite3
+*.db
+
+# Flask instance
+app/instance/
+
+# Generated assets
+app/static/generated/
+
+# OS/editor
+.DS_Store
+.vscode/

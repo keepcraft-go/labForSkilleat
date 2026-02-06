@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ news.title }} - Feeltech</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .news-detail-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .news-detail-header {
+      margin-bottom: 40px;
+    }
+
+    .news-detail-image {
+      margin-bottom: 24px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #111;
+      border: 1px solid #2a2a2a;
+    }
+
+    .news-detail-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .news-detail-credit {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      padding: 10px 12px;
+      background: #111;
+    }
+
+    .news-detail-credit a {
+      color: #fbbf24;
+      text-decoration: none;
+    }
+
+    .news-detail-credit a:hover {
+      color: #fcd34d;
+    }
+
+    .news-detail-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #e5e7eb;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+    }
+
+    .news-detail-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: #9ca3af;
+    }
+
+    .news-detail-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .news-detail-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: #fbbf24;
+      color: #000;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .news-detail-content {
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid #2a2a2a;
+      margin-bottom: 32px;
+    }
+
+    .news-detail-section {
+      margin-bottom: 32px;
+    }
+
+    .news-detail-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #fbbf24;
+    }
+
+    .news-detail-summary {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #d1d5db;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: #262626;
+      border-left: 4px solid #fbbf24;
+      border-radius: 8px;
+      word-wrap: break-word;
+    }
+
+    .news-detail-summary p {
+      margin: 4px 0;
+    }
+
+    .news-detail-summary h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #fbbf24;
+      padding-bottom: 4px;
+    }
+
+    .news-detail-summary h2:first-child {
+      margin-top: 0;
+    }
+
+    .news-detail-summary ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0;
+    }
+
+    .news-detail-summary li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .news-detail-summary li:before {
+      content: "•";
+      color: #fbbf24;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .news-detail-original {
+      font-size: 0.95rem;
+      color: #9ca3af;
+      margin-bottom: 24px;
+      padding: 16px;
+      background: #262626;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+
+    .news-detail-original strong {
+      color: #fbbf24;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .news-detail-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .news-detail-actions a {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .news-detail-actions .primary {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #000;
+      box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+    }
+
+    .news-detail-actions .primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+    }
+
+    .news-detail-actions .secondary {
+      background: #262626;
+      color: #fbbf24;
+      border: 1px solid #fbbf24;
+    }
+
+    .news-detail-actions .secondary:hover {
+      background: #fbbf24;
+      color: #000;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #fbbf24;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: #fcd34d;
+    }
+
+    .news-detail-score {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #262626;
+      color: #fbbf24;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Feeltech</a>
+      <ul class="nav-links">
+        <li><a href="/">메인</a></li>
+        <li><a href="/quiz">퀴즈</a></li>
+        <li><a href="/news" class="active">기술소식</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="news-detail-container">
+    <a href="/news" class="back-link">← 기술소식 목록으로</a>
+
+    <div class="news-detail-header">
+      {% if news.image_url %}
+        <figure class="news-detail-image">
+          <img src="{{ news.image_url }}" alt="{{ news.image_alt or news.title }}" />
+          {% if news.image_credit_name and news.image_credit_url %}
+            <figcaption class="news-detail-credit">
+              Photo by <a href="{{ news.image_credit_url }}" target="_blank" rel="noopener noreferrer">{{ news.image_credit_name }}</a> on Unsplash
+            </figcaption>
+          {% endif %}
+        </figure>
+      {% endif %}
+      <h1 class="news-detail-title">{{ news.title }}</h1>
+      
+      <div class="news-detail-meta">
+        <div class="news-detail-meta-item">
+          <span class="news-detail-badge">{{ news.source }}</span>
+        </div>
+        <div class="news-detail-meta-item">
+          📅 {{ news.date }}
+        </div>
+        <div class="news-detail-meta-item">
+          <span class="news-detail-score">👍 {{ news.score }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-detail-content">
+      <div class="news-detail-section">
+        <h2>📝 한글 요약</h2>
+        <div class="news-detail-summary">
+          {% if news.description_html %}
+            {{ news.description_html | safe }}
+          {% else %}
+            {{ news.description }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="news-detail-section">
+        <h2>📄 원본 정보</h2>
+        <div class="news-detail-original">
+          <strong>원문 제목:</strong>
+          {{ news.original_title }}
+        </div>
+      </div>
+
+      <div class="news-detail-actions">
+        <a href="{{ news.url }}" target="_blank" class="primary">
+          🔗 원본 기사 보러가기
+        </a>
+        <a href="/news" class="secondary">
+          ← 목록으로 돌아가기
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feeltech - 기술 학습 플랫폼</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Feeltech</a>
+      <ul class="nav-links">
+        <li><a href="/" class="active">메인</a></li>
+        <li><a href="/quiz">퀴즈</a></li>
+        <li><a href="/news">기술소식</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero" style="margin-top: 40px;">
+      <h1>당신이 기술에 대한 감을<br>잡을 때까지 도와줍니다</h1>
+      <p>Kubernetes, Docker, DevOps부터 최신 기술 동향까지<br>한 곳에서 배우고 성장하세요</p>
+      
+      <div class="cta-buttons">
+        <a href="/quiz" class="primary">퀴즈 시작하기</a>
+        <a href="/news" class="secondary">기술소식 보기</a>
+      </div>
+    </div>
+
+    <!-- 랭킹 대시보드 섹션 -->
+    <div style="margin-top: 90px;">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; margin-bottom: 10px;">🏆 명예의 전당</h2>
+        <p style="color: #9ca3af; font-size: 1.1rem;">최고의 학습자들이 여기 있습니다. 당신도 도전해보세요!</p>
+      </div>
+
+      <div style="background: #1a1a1a; border: 2px solid #fbbf24; border-radius: 16px; padding: 40px; margin-bottom: 40px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <!-- 좌측: 랭킹 테이블 -->
+          <div>
+            <h3 style="color: #fbbf24; margin-bottom: 20px; font-size: 1.3rem;">Top 10 Ranking</h3>
+            <div style="background: #0f0f0f; border-radius: 12px; overflow: hidden;">
+              {% for user in top_users %}
+                <div style="display: flex; align-items: center; padding: 15px 20px; border-bottom: 1px solid #2a2a2a; gap: 15px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; flex-shrink: 0;">
+                    {{ loop.index }}
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="color: #e5e7eb; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                      {{ user['nickname'] }}
+                      {% set diff = {"easy":"하","medium":"중","hard":"상"}.get(user["difficulty"], "") %}
+                      {% if diff %}
+                        <span style="margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: #262626; color: #fbbf24; font-size: 0.75rem; font-weight: 700;">{{ diff }}</span>
+                      {% endif %}
+                    </div>
+                    <div style="color: #9ca3af; font-size: 0.9rem;">{{ user['updated_at'] }}</div>
+                  </div>
+                  <div style="background: #fbbf24; color: #000; padding: 6px 12px; border-radius: 6px; font-weight: bold; flex-shrink: 0;">{{ user['best_score'] }}점</div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- 우측: CTA 섹션 -->
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <div style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); padding: 40px; border-radius: 12px; text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 20px;">⚡</div>
+              <h3 style="color: #000; font-size: 1.5rem; margin-bottom: 15px;">랭킹에 도전해보세요!</h3>
+              <p style="color: #000; font-size: 1rem; margin-bottom: 25px; line-height: 1.6;">
+                퀴즈를 풀고 최고의 점수를 기록하면<br>명예의 전당에 당신의 이름이 올라갑니다!
+              </p>
+              <a href="/quiz" style="display: inline-block; background: #000; color: #fbbf24; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease; cursor: pointer;">
+                지금 도전하기 →
+              </a>
+            </div>
+
+            <div style="margin-top: 20px; padding: 20px; background: #262626; border-radius: 8px;">
+              <div style="color: #fbbf24; font-weight: bold; margin-bottom: 10px;">💡 팁</div>
+              <p style="color: #9ca3af; font-size: 0.9rem; margin: 0;">모든 난이도의 문제를 풀어보고,<br>당신의 최고 점수를 달성하세요!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin: 60px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px;">
+      <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px; padding: 24px; position: relative; overflow: hidden;">
+        <div style="font-size: 1.6rem; margin-bottom: 10px;">🎓 강의</div>
+        <h3 style="color: #e5e7eb; margin: 0 0 10px; font-size: 1.2rem;">Skilleat에서 실전 강의</h3>
+        <p style="color: #9ca3af; font-size: 0.95rem; line-height: 1.6; margin: 0 0 16px;">운영/인프라/DevOps 중심의 커리큘럼으로 실력을 빠르게 올려보세요.</p>
+        <a href="https://skilleat.com" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 18px; border-radius: 10px; background: #111; border: 1px solid #fbbf24; color: #fbbf24; text-decoration: none; font-weight: 600;">Skilleat 바로가기 →</a>
+      </div>
+
+      <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px; padding: 24px; position: relative; overflow: hidden;">
+        <div style="font-size: 1.6rem; margin-bottom: 10px;">▶️ 유튜브</div>
+        <h3 style="color: #e5e7eb; margin: 0 0 10px; font-size: 1.2rem;">Feeltech 최신 강의</h3>
+        <p style="color: #9ca3af; font-size: 0.95rem; line-height: 1.6; margin: 0 0 16px;">실무 기반 데브옵스 콘텐츠와 최신 기술 트렌드를 빠르게 확인하세요.</p>
+        <a href="https://www.youtube.com/@feeltechedu" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 18px; border-radius: 10px; background: #fbbf24; color: #000; text-decoration: none; font-weight: 700;">YouTube 구독하기 →</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
