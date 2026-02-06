@@ -37,7 +37,7 @@
       </div>
 
       <div style="background: #1a1a1a; border: 2px solid #fbbf24; border-radius: 16px; padding: 40px; margin-bottom: 40px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div style="display: grid; grid-template-columns: minmax(360px, 1fr) minmax(280px, 360px); gap: 30px;">
           <!-- 좌측: 랭킹 테이블 -->
           <div>
             <h3 style="color: #fbbf24; margin-bottom: 20px; font-size: 1.3rem;">Top 10 Ranking</h3>
@@ -47,7 +47,7 @@
                   <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; flex-shrink: 0;">
                     {{ loop.index }}
                   </div>
-                  <div style="flex: 1; min-width: 0;">
+                  <div style="flex: 1; min-width: 0; max-width: 220px;">
                     <div style="color: #e5e7eb; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                       {{ user['nickname'] }}
                       {% set diff = {"easy":"하","medium":"중","hard":"상"}.get(user["difficulty"], "") %}

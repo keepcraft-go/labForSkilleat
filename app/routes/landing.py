@@ -10,7 +10,7 @@ def landing():
     # 상위 10명의 랭킹 가져오기
     db = get_db()
     top_users = db.execute(
-        "SELECT nickname, best_score, updated_at, difficulty FROM hall_of_fame ORDER BY best_score DESC, updated_at ASC LIMIT 10"
+        "SELECT nickname, best_score, updated_at, difficulty FROM hall_of_fame ORDER BY best_score DESC, updated_at ASC LIMIT 5"
     ).fetchall()
     
     return render_template("landing.html", top_users=top_users)
