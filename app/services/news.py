@@ -286,20 +286,24 @@ def get_tech_news():
         # 여러 소스에서 뉴스 수집
         all_candidates = []
         
-        # 1. HackerNews에서 상위 30개 가져오기
+        # 1. HackerNews에서 상위 30개 가져오기 (최근 72시간 필터)
         print("[INFO] HackerNews 데이터 수집 중...")
         top_stories_url = "https://hacker-news.firebaseio.com/v0/topstories.json"
         response = requests.get(top_stories_url, timeout=5)
-        top_story_ids = response.json()[:30]  # 상위 30개로 증가
+        top_story_ids = response.json()[:50]  # 넉넉히 가져와 72시간 필터 적용
         
         story_url = "https://hacker-news.firebaseio.com/v0/item/{}.json"
+        now_ts = time.time()
+        max_age_seconds = 72 * 3600
         
         for story_id in top_story_ids:
             try:
                 item_response = requests.get(story_url.format(story_id), timeout=3)
                 item = item_response.json()
                 
-                if "title" in item and "url" in item:
+                if "title" in item and "url" in item and "time" in item:
+                    if (now_ts - item.get("time", 0)) > max_age_seconds:
+                        continue
                     score = item.get("score", 0)
                     title = item.get("title", "")
                     relevance_score = _calculate_relevance_score(title, score)
