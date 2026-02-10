@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>협업 일정 관리 - Lab-Skilleat</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Lab-Skilleat</a>
+      <ul class="nav-links">
+        <li><a href="/">메인</a></li>
+        <li><a href="/quiz">퀴즈</a></li>
+        <li><a href="/news">기술소식</a></li>
+        <li><a href="/collab">협업 문의</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container full-width">
+    <header>
+      <h1>협업 일정 관리</h1>
+       <p>강의/협업 문의는 nr@skilleat.com으로 문의 부탁드립니다.</p>
+    </header>
+
+    {% if not is_admin %}
+      <div class="card schedule-admin">
+        <h2>관리자 로그인</h2>
+        <form action="/schedule/admin/login" method="post" class="schedule-form">
+          <div class="form-group">
+            <label for="password">관리자 비밀번호</label>
+            <input id="password" name="password" type="password" placeholder="관리자 비밀번호" required />
+          </div>
+          <button type="submit">로그인</button>
+        </form>
+      </div>
+    {% else %}
+      <div class="card schedule-admin">
+        <div class="admin-header">
+          <h2>{{ "일정 수정" if edit_item else "일정 등록" }}</h2>
+          <form action="/schedule/admin/logout" method="post">
+            <button type="submit" class="small-button">관리자 로그아웃</button>
+          </form>
+        </div>
+
+        <form action="{{ '/schedule/admin/update/' ~ edit_item['id'] if edit_item else '/schedule/admin/create' }}" method="post" class="schedule-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="title">일정 제목</label>
+              <input id="title" name="title" type="text" placeholder="예: 쿠버네티스 강의" required value="{{ edit_item['title'] if edit_item else '' }}" />
+            </div>
+            <div class="form-group">
+              <label for="note">메모</label>
+              <input id="note" name="note" type="text" placeholder="선택 사항" value="{{ edit_item['note'] if edit_item else '' }}" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="start_date">시작일</label>
+              <input id="start_date" name="start_date" type="date" required value="{{ edit_item['start_date'] if edit_item else '' }}" />
+            </div>
+            <div class="form-group">
+              <label for="end_date">종료일</label>
+              <input id="end_date" name="end_date" type="date" value="{{ edit_item['end_date'] if edit_item else '' }}" />
+            </div>
+          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" name="include_weekends" {% if edit_item and edit_item['include_weekends'] %}checked{% endif %} />
+            기간에 주말 포함
+          </label>
+          <button type="submit">{{ "수정하기" if edit_item else "등록하기" }}</button>
+        </form>
+      </div>
+
+      <div class="card schedule-admin">
+        <h2>등록된 일정</h2>
+        {% if schedules %}
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>제목</th>
+                <th>기간</th>
+                <th>주말 포함</th>
+                <th>작업</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in schedules %}
+                <tr>
+                  <td>{{ item['title'] }}</td>
+                  <td>{{ item['start_date'] }} ~ {{ item['end_date'] }}</td>
+                  <td>{{ "포함" if item['include_weekends'] else "제외" }}</td>
+                  <td class="admin-actions">
+                    <a href="/schedule/admin/edit/{{ item['id'] }}">수정</a>
+                    <form action="/schedule/admin/delete/{{ item['id'] }}" method="post" onsubmit="return confirm('삭제할까요?');">
+                      <button type="submit" class="link-button">삭제</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p style="color: #9ca3af;">등록된 일정이 없습니다.</p>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

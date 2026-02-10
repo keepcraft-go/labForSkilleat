@@ -66,10 +66,23 @@ def init_db():
         concept_tag TEXT NOT NULL,
         youtube_url TEXT NOT NULL
     );
+
+    CREATE TABLE IF NOT EXISTS schedules (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        start_date TEXT NOT NULL,
+        end_date TEXT NOT NULL,
+        note TEXT,
+        include_weekends INTEGER NOT NULL DEFAULT 0,
+        created_at TEXT NOT NULL
+    );
     """
     db.executescript(schema)
     # Add difficulty column if missing (for existing DBs)
     cols = [row["name"] for row in db.execute("PRAGMA table_info(hall_of_fame)").fetchall()]
     if "difficulty" not in cols:
         db.execute("ALTER TABLE hall_of_fame ADD COLUMN difficulty TEXT NOT NULL DEFAULT ''")
+    cols = [row["name"] for row in db.execute("PRAGMA table_info(schedules)").fetchall()]
+    if "include_weekends" not in cols:
+        db.execute("ALTER TABLE schedules ADD COLUMN include_weekends INTEGER NOT NULL DEFAULT 0")
     db.commit()

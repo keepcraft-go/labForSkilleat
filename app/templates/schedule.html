@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>협업 일정 - Lab-Skilleat</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Lab-Skilleat</a>
+      <ul class="nav-links">
+        <li><a href="/">메인</a></li>
+        <li><a href="/quiz">퀴즈</a></li>
+        <li><a href="/news">기술소식</a></li>
+        <li><a href="/collab">협업 문의</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container full-width">
+    <header>
+      <h1>협업 일정</h1>
+      <p>
+        Skilleat의 기술 강의는  
+        강의 목적과 대상에 맞춰 <strong>선별적으로 진행</strong>됩니다.
+        </p>
+        <p>
+        모든 일정은 사전 상담 후 확정되며,  
+        협업 일정은 <strong>2개월 단위로 공개</strong>됩니다.
+        </p>
+        <p>
+        강의/협업 문의: contact@skilleat.com
+        </p>
+    </header>
+
+    <div class="card schedule-card">
+      <div class="schedule-top">
+        <div class="schedule-nav">
+          <a href="/schedule?year={{ prev_year }}&month={{ prev_month }}">← 이전달</a>
+          <div class="schedule-current">{{ year }}년 {{ month }}월</div>
+          <a href="/schedule?year={{ next_year }}&month={{ next_month }}">다음달 →</a>
+        </div>
+
+        <div class="schedule-legend">
+          <span class="calendar-badge free">가능</span>
+          <span class="calendar-badge busy">예약됨</span>
+        </div>
+      </div>
+
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for week in calendar_weeks %}
+            <tr>
+              {% for day in week %}
+                {% if day %}
+                  <td class="calendar-cell">
+                    <div class="calendar-date-row">
+                      <span class="calendar-date">{{ day.day }}</span>
+                      {% if day.events %}
+                        <span class="calendar-badge busy">예약됨</span>
+                      {% else %}
+                        <span class="calendar-badge free">가능</span>
+                      {% endif %}
+                    </div>
+                    <div class="calendar-events">
+                      {% for ev in day.events %}
+                        <div class="event-bar {{ ev.segment }}">{{ ev.title }}</div>
+                      {% endfor %}
+                    </div>
+                  </td>
+                {% else %}
+                  <td class="calendar-cell empty"></td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

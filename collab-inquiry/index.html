@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>협업 문의 - Skilleat</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <p class="eyebrow">Skilleat</p>
+        <h1>협업 문의</h1>
+        <p class="subtitle">
+          실무 중심의 기술 강의 협업을 선별적으로 진행합니다.
+          조직의 목적과 수준에 맞춘 집중형 강의/워크숍/세션을 제안드립니다.
+        </p>
+      </div>
+      <div class="hero-card">
+        <h2>가능 주제</h2>
+        <ul class="topics">
+          <li>Cloud Infrastructure</li>
+          <li>Kubernetes &amp; Container</li>
+          <li>DevOps Engineering</li>
+          <li>AI &amp; Azure</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="form-section">
+      <h2>문의하기</h2>
+      <p class="section-desc">필수 항목을 작성해주시면 빠르게 확인 후 연락드립니다.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">이름</label>
+            <input type="text" id="fullName" name="fullName" required />
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="company">회사/기관</label>
+            <input type="text" id="company" name="company" required />
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required />
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="phone">연락처 (선택)</label>
+            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" />
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="audience">대상</label>
+            <input type="text" id="audience" name="audience" placeholder="예: 데브옵스 팀 20명" required />
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="topic">주제</label>
+            <select id="topic" name="topic" required>
+              <option value="">선택해주세요</option>
+              <option>Cloud Infrastructure</option>
+              <option>Kubernetes &amp; Container</option>
+              <option>DevOps Engineering</option>
+              <option>AI &amp; Azure</option>
+            </select>
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="desiredDate">희망 일정</label>
+            <input type="date" id="desiredDate" name="desiredDate" required />
+            <small class="error"></small>
+          </div>
+          <div class="field full">
+            <label for="details">문의 내용</label>
+            <textarea id="details" name="details" rows="5" required></textarea>
+            <small class="error"></small>
+          </div>
+        </div>
+
+        <button type="submit" class="primary-btn">문의 보내기</button>
+        <p id="formStatus" class="status"></p>
+      </form>
+    </section>
+
+    <section class="calendar-section">
+      <div class="calendar-header">
+        <h2>협업 일정 보기</h2>
+        <a class="calendar-link" href="/schedule" target="_blank" rel="noopener">전체 캘린더 보기 →</a>
+      </div>
+      <div id="calendar"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

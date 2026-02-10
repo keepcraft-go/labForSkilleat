@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>협업 문의 - Skilleat</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="/static/collab.css" />
+  <!-- Flatpickr 달력 라이브러리 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Lab-Skilleat</a>
+      <ul class="nav-links">
+        <li><a href="/">메인</a></li>
+        <li><a href="/quiz">퀴즈</a></li>
+        <li><a href="/news">기술소식</a></li>
+        <li><a href="/collab" class="active">협업 문의</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="collab-hero">
+    <div class="collab-container">
+      <div class="collab-hero-text">
+        <p class="collab-eyebrow">Skilleat</p>
+        <h1>협업 문의</h1>
+        <p class="collab-subtitle">
+          "감 잡아주는 테크트레이너" 김누리입니다.<br>
+          조직의 목적과 수준에 맞춘 집중형 강의, 워크숍, 세션을 통해
+          기술의 감을 제대로 잡아드립니다.
+        </p>
+      </div>
+      <div class="collab-hero-card">
+        <h2>가능 주제</h2>
+        <ul class="collab-topics">
+          <li>Cloud Infrastructure</li>
+          <li>Kubernetes &amp; Container</li>
+          <li>DevOps Engineering</li>
+          <li>AI &amp; Azure</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="collab-container collab-main">
+    <div class="collab-cta-row">
+      <a class="collab-calendar-link top-link" href="/schedule" target="_blank" rel="noopener">협업 일정 보기 →</a>
+    </div>
+    <section class="collab-form-section">
+      <h2>문의하기</h2>
+      <p class="collab-section-desc">필수 항목을 작성해주시면 빠르게 확인 후 연락드립니다.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="collab-grid">
+          <div class="collab-field">
+            <label for="fullName">이름</label>
+            <input type="text" id="fullName" name="fullName" required />
+            <small class="collab-error"></small>
+          </div>
+          <div class="collab-field">
+            <label for="company">회사/기관</label>
+            <input type="text" id="company" name="company" required />
+            <small class="collab-error"></small>
+          </div>
+          <div class="collab-field">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required />
+            <small class="collab-error"></small>
+          </div>
+          <div class="collab-field">
+            <label for="phone">연락처 (선택)</label>
+            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" />
+            <small class="collab-error"></small>
+          </div>
+          <div class="collab-field">
+            <label for="audience">대상</label>
+            <input type="text" id="audience" name="audience" placeholder="예: 데브옵스 팀 20명" required />
+            <small class="collab-error"></small>
+          </div>
+          <div class="collab-field">
+            <label for="topic">주제</label>
+            <select id="topic" name="topic" required>
+              <option value="">선택해주세요</option>
+              <option>Cloud Infrastructure</option>
+              <option>Kubernetes &amp; Container</option>
+              <option>DevOps Engineering</option>
+              <option>AI &amp; Azure</option>
+              <option value="기타">기타</option>
+            </select>
+            <small class="collab-error"></small>
+          </div>
+          <div class="collab-field">
+            <label for="desiredDate">희망 일정</label>
+            <!-- type="text"로 변경 + readonly로 직접 입력 방지 -->
+            <input type="text" id="desiredDate" name="desiredDate" placeholder="날짜를 클릭해서 선택하세요" readonly required />
+            <small class="collab-error"></small>
+          </div>
+          <!-- ✅ 인라인 캘린더 섹션 제거됨 -->
+          <div class="collab-field full">
+            <label for="details">문의 내용</label>
+            <textarea id="details" name="details" rows="5" required></textarea>
+            <small class="collab-error"></small>
+          </div>
+        </div>
+
+        <button type="submit" class="collab-primary-btn">문의 보내기</button>
+        <p id="formStatus" class="collab-status"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+  <script src="/static/collab.js"></script>
+
+  <script>
+    // 희망 일정 필드에 flatpickr 달력 팝업 적용
+    flatpickr("#desiredDate", {
+      locale: "ko",                    // 한국어
+      dateFormat: "Y. m. d.",          // 2026. 02. 10. 형식
+      minDate: "today",                // 오늘 이전 날짜 선택 불가
+      disableMobile: true,             // 모바일에서도 flatpickr 사용
+      allowInput: false,               // 직접 타이핑 방지
+      theme: "dark",                   // 다크 테마
+    });
+  </script>
+</body>
+</html>

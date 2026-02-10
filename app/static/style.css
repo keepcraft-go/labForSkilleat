@@ -631,6 +631,217 @@ h2 {
   100% { transform: translateX(-50%); }
 }
 
+.schedule-card {
+  overflow-x: auto;
+}
+
+.schedule-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.schedule-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.schedule-nav a {
+  color: #fbbf24;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.schedule-current {
+  font-weight: 700;
+  color: #e5e7eb;
+}
+
+.schedule-legend {
+  display: flex;
+  gap: 8px;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #121212;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+}
+
+.calendar-table th {
+  padding: 12px;
+  text-align: center;
+  background: #1f1f1f;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calendar-cell {
+  vertical-align: top;
+  min-width: 110px;
+  height: 96px;
+  border-top: 1px solid #1f1f1f;
+  border-right: 1px solid #1f1f1f;
+  padding: 8px;
+  background: #151515;
+}
+
+.calendar-cell.empty {
+  background: #0f0f0f;
+}
+
+.calendar-date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.calendar-date {
+  font-weight: 700;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.calendar-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.calendar-badge.free {
+  background: #1f2937;
+  color: #93c5fd;
+  border: 1px solid #1d4ed8;
+}
+
+.calendar-badge.busy {
+  background: #3a2a0f;
+  color: #fbbf24;
+  border: 1px solid #f59e0b;
+}
+
+.calendar-events {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.event-bar {
+  font-size: 0.75rem;
+  color: #111;
+  background: #fbbf24;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-bar.start {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.event-bar.middle {
+  border-radius: 0;
+}
+
+.event-bar.end {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.schedule-admin .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.schedule-form button {
+  margin-top: 12px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid #2a2a2a;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #1f1f1f;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.admin-actions a,
+.link-button {
+  color: #fbbf24;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.admin-actions a:hover,
+.link-button:hover {
+  color: #fcd34d;
+}
+
+.small-button {
+  width: auto;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
 @media (max-width: 900px) {
   nav .nav-container {
     max-width: 100%;
@@ -662,6 +873,11 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+
+  .calendar-cell {
+    min-width: 96px;
+    height: 90px;
   }
 
   .ranking-grid {
@@ -720,6 +936,35 @@ h2 {
 
   .news-ticker-item {
     font-size: 0.85rem;
+  }
+
+  .schedule-admin .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .schedule-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .calendar-table th {
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+  .calendar-cell {
+    min-width: 88px;
+    height: 84px;
+    padding: 6px;
+  }
+  .calendar-date {
+    font-size: 0.85rem;
+  }
+  .event-bar {
+    font-size: 0.7rem;
   }
 
   .ranking-section h2 {

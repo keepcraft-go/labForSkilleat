@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+.collab-container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.collab-hero {
+  padding: 60px 0 40px;
+  background: radial-gradient(circle at top, #2b2b2b, #0f0f0f 55%);
+  border-bottom: 1px solid #222;
+}
+
+.collab-hero .collab-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.collab-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fbbf24;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.collab-hero h1 {
+  font-size: 2.6rem;
+  margin: 0 0 12px;
+}
+
+.collab-subtitle {
+  color: #9ca3af;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.collab-hero-card {
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.collab-topics {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.collab-topics li {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #1f1f1f;
+  border: 1px solid #2f2f2f;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.collab-main {
+  padding: 40px 0 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.collab-cta-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.collab-calendar-link.top-link {
+  background: #1f1f1f;
+  border: 1px solid #2f2f2f;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #fbbf24;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.collab-form-section,
+.collab-calendar-section {
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.collab-section-desc {
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.collab-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.collab-field.full {
+  grid-column: span 2;
+}
+
+.collab-field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.collab-field input,
+.collab-field select,
+.collab-field textarea {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  color: #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.95rem;
+}
+
+.collab-field input:focus,
+.collab-field select:focus,
+.collab-field textarea:focus {
+  outline: none;
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+.collab-error {
+  color: #f87171;
+  min-height: 16px;
+  font-size: 0.8rem;
+}
+
+.collab-primary-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #111;
+}
+
+.collab-status {
+  margin-top: 12px;
+  color: #93c5fd;
+  min-height: 20px;
+}
+
+.collab-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.collab-calendar-link {
+  color: #fbbf24;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#calendar {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.inline-calendar {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.inline-calendar .fc {
+  font-size: 0.85rem;
+}
+
+.inline-calendar .fc .fc-daygrid-day-number {
+  color: #e5e7eb;
+}
+
+@media (max-width: 960px) {
+  .collab-hero .collab-container {
+    grid-template-columns: 1fr;
+  }
+  .collab-cta-row {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .collab-grid {
+    grid-template-columns: 1fr;
+  }
+  .collab-field.full {
+    grid-column: span 1;
+  }
+  .collab-hero h1 {
+    font-size: 2rem;
+  }
+}
