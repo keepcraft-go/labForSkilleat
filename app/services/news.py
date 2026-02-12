@@ -271,14 +271,14 @@ def get_tech_news():
     """
     print("[INFO] get_tech_news() 호출됨")
     
+    # 파일 캐시 우선 로드 (크론 갱신 반영)
+    if _load_cache_from_file():
+        print("[INFO] 파일 캐시에서 로드됨")
+        return _news_cache["data"]
+
     # 메모리 캐시 확인
     if _is_cache_valid():
         print("[INFO] 메모리 캐시에서 반환")
-        return _news_cache["data"]
-    
-    # 파일 캐시 로드 시도
-    if _load_cache_from_file():
-        print("[INFO] 파일 캐시에서 로드됨")
         return _news_cache["data"]
     
     print("[INFO] 새로운 뉴스 데이터 생성 중...")
