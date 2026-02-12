@@ -276,7 +276,7 @@
   },
   {
     "topic": "kubernetes",
-    "question": "ImagePullPolicy의 기본값(Default)은 무엇인가요?",
+    "question": "태그가 latest가 아닌 경우 ImagePullPolicy의 기본값은 무엇인가요?",
     "choice_a": "Never",
     "choice_b": "Always",
     "choice_c": "IfNotPresent",
@@ -1066,28 +1066,28 @@
     "concept_tag": "operators",
     "difficulty": "hard"
   },
-  {
-    "topic": "kubernetes",
-    "question": "etcd의 고가용성을 위한 최소 노드 수는 몇 개인가요?",
-    "choice_a": "1개",
-    "choice_b": "2개",
-    "choice_c": "3개",
-    "choice_d": "5개",
-    "correct": "C",
-    "concept_tag": "high-availability",
-    "difficulty": "hard"
-  },
-  {
-    "topic": "kubernetes",
-    "question": "kube-scheduler의 스케줄링 과정에서 Filtering 단계의 역할은 무엇인가요?",
-    "choice_a": "최적 노드 선택",
-    "choice_b": "조건을 만족하지 않는 노드 제거",
-    "choice_c": "Pod 생성",
-    "choice_d": "리소스 할당",
-    "correct": "B",
-    "concept_tag": "scheduling",
-    "difficulty": "hard"
-  },
+{
+  "topic": "kubernetes",
+  "question": "etcd 클러스터에서 1개의 노드 장애를 허용하기 위한 최소 노드 수는 몇 개인가요?",
+  "choice_a": "1개",
+  "choice_b": "2개",
+  "choice_c": "3개",
+  "choice_d": "5개",
+  "correct": "C",
+  "concept_tag": "high-availability",
+  "difficulty": "hard"
+},
+{
+  "topic": "kubernetes",
+  "question": "kube-scheduler가 Pod를 스케줄링할 때, 여러 노드가 동일한 Score를 가질 경우 최종 노드를 선택하는 방식은 무엇인가요?",
+  "choice_a": "알파벳 순서로 선택",
+  "choice_b": "가장 먼저 발견된 노드 선택",
+  "choice_c": "라운드 로빈 방식 선택",
+  "choice_d": "리소스가 가장 많은 노드 선택",
+  "correct": "C",
+  "concept_tag": "scheduling",
+  "difficulty": "hard"
+},
   {
     "topic": "kubernetes",
     "question": "kube-scheduler의 스케줄링 과정에서 Scoring 단계의 역할은 무엇인가요?",
@@ -1280,7 +1280,7 @@
     "question": "Guaranteed QoS 클래스가 되기 위한 조건은 무엇인가요?",
     "choice_a": "requests만 설정",
     "choice_b": "limits만 설정",
-    "choice_c": "requests와 limits가 동일하게 설정",
+    "choice_c": "모든 컨테이너의 CPU와 메모리 requests와 limits가 동일하게 설정",
     "choice_d": "아무것도 설정 안 함",
     "correct": "C",
     "concept_tag": "qos",
@@ -1299,11 +1299,11 @@
   },
   {
     "topic": "kubernetes",
-    "question": "PodSecurityPolicy(PSP)의 대체 기능으로 권장되는 것은 무엇인가요?",
-    "choice_a": "NetworkPolicy",
+    "question": "Kubernetes v1.25부터 제거된 PodSecurityPolicy를 대체하기 위해 도입된 built-in admission controller는 무엇인가요?",
+    "choice_a": "PodSecurityStandard",
     "choice_b": "Pod Security Admission",
-    "choice_c": "RBAC",
-    "choice_d": "ServiceAccount",
+    "choice_c": "SecurityContext Admission",
+    "choice_d": "PodSecurityValidator",
     "correct": "B",
     "concept_tag": "security",
     "difficulty": "hard"
