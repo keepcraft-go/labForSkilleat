@@ -982,6 +982,46 @@ h2 {
   }
 }
 
+@media (max-width: 480px) {
+  nav .logo {
+    font-size: 1.2rem;
+  }
+
+  nav .nav-links {
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+
+  h1,
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+  }
+
+  .news-card-title {
+    font-size: 1rem;
+  }
+
+  .news-card-description {
+    font-size: 0.9rem;
+  }
+
+  .news-detail-title {
+    font-size: 1.8rem;
+  }
+
+  .news-detail-summary {
+    font-size: 1rem;
+    padding: 16px;
+  }
+
+  .news-detail-content {
+    padding: 24px;
+  }
+}
 @media (max-width: 420px) {
   nav .nav-links {
     gap: 10px;

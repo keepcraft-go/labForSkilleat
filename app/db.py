@@ -49,6 +49,7 @@ def init_db():
         user_id INTEGER NOT NULL,
         score INTEGER NOT NULL,
         weak_tags TEXT NOT NULL,
+        duration_seconds INTEGER NOT NULL DEFAULT 0,
         created_at TEXT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
     );
@@ -57,6 +58,7 @@ def init_db():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nickname TEXT UNIQUE NOT NULL,
         best_score INTEGER NOT NULL,
+        best_duration_seconds INTEGER NOT NULL DEFAULT 0,
         updated_at TEXT NOT NULL,
         difficulty TEXT NOT NULL DEFAULT ''
     );
@@ -78,10 +80,15 @@ def init_db():
     );
     """
     db.executescript(schema)
-    # Add difficulty column if missing (for existing DBs)
+    # Add missing columns if needed (for existing DBs)
     cols = [row["name"] for row in db.execute("PRAGMA table_info(hall_of_fame)").fetchall()]
     if "difficulty" not in cols:
         db.execute("ALTER TABLE hall_of_fame ADD COLUMN difficulty TEXT NOT NULL DEFAULT ''")
+    if "best_duration_seconds" not in cols:
+        db.execute("ALTER TABLE hall_of_fame ADD COLUMN best_duration_seconds INTEGER NOT NULL DEFAULT 0")
+    cols = [row["name"] for row in db.execute("PRAGMA table_info(attempts)").fetchall()]
+    if "duration_seconds" not in cols:
+        db.execute("ALTER TABLE attempts ADD COLUMN duration_seconds INTEGER NOT NULL DEFAULT 0")
     cols = [row["name"] for row in db.execute("PRAGMA table_info(schedules)").fetchall()]
     if "include_weekends" not in cols:
         db.execute("ALTER TABLE schedules ADD COLUMN include_weekends INTEGER NOT NULL DEFAULT 0")

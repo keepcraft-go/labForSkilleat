@@ -26,30 +26,24 @@
     </header>
 
     <div class="card">
-      {% if rows %}
+      <h2>난이도 하</h2>
+      {% if rows_easy %}
         <table>
           <thead>
             <tr>
               <th style="text-align: center; width: 50px;">순위</th>
               <th>닉네임</th>
-              <th style="text-align: center;">난이도</th>
               <th style="text-align: right;">점수</th>
               <th style="text-align: right;">날짜</th>
             </tr>
           </thead>
           <tbody>
-            {% for row in rows %}
+            {% for row in rows_easy %}
               <tr>
                 <td style="text-align: center; font-weight: 600; color: #3b82f6;">
                   {{ loop.index }}
                 </td>
                 <td>{{ row["nickname"] }}</td>
-                <td style="text-align: center;">
-                  {% set diff = {"easy":"하","medium":"중","hard":"상"}.get(row["difficulty"], "") %}
-                  <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: #262626; color: #fbbf24; font-weight: 600; font-size: 0.8rem;">
-                    {{ diff }}
-                  </span>
-                </td>
                 <td style="text-align: right; font-weight: 600; color: #1a202c;">{{ row["best_score"] }}</td>
                 <td style="text-align: right; color: #94a3b8; font-size: 0.9rem;">{{ row["updated_at"] }}</td>
               </tr>
@@ -57,7 +51,71 @@
           </tbody>
         </table>
       {% else %}
-        <p style="text-align: center; color: #94a3b8; padding: 48px 0; font-size: 1rem;">
+        <p style="text-align: center; color: #94a3b8; padding: 24px 0; font-size: 0.95rem;">
+          아직 기록이 없습니다.
+        </p>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2>난이도 중</h2>
+      {% if rows_medium %}
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align: center; width: 50px;">순위</th>
+              <th>닉네임</th>
+              <th style="text-align: right;">점수</th>
+              <th style="text-align: right;">날짜</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in rows_medium %}
+              <tr>
+                <td style="text-align: center; font-weight: 600; color: #3b82f6;">
+                  {{ loop.index }}
+                </td>
+                <td>{{ row["nickname"] }}</td>
+                <td style="text-align: right; font-weight: 600; color: #1a202c;">{{ row["best_score"] }}</td>
+                <td style="text-align: right; color: #94a3b8; font-size: 0.9rem;">{{ row["updated_at"] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p style="text-align: center; color: #94a3b8; padding: 24px 0; font-size: 0.95rem;">
+          아직 기록이 없습니다.
+        </p>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2>난이도 상</h2>
+      {% if rows_hard %}
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align: center; width: 50px;">순위</th>
+              <th>닉네임</th>
+              <th style="text-align: right;">점수</th>
+              <th style="text-align: right;">날짜</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in rows_hard %}
+              <tr>
+                <td style="text-align: center; font-weight: 600; color: #3b82f6;">
+                  {{ loop.index }}
+                </td>
+                <td>{{ row["nickname"] }}</td>
+                <td style="text-align: right; font-weight: 600; color: #1a202c;">{{ row["best_score"] }}</td>
+                <td style="text-align: right; color: #94a3b8; font-size: 0.9rem;">{{ row["updated_at"] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p style="text-align: center; color: #94a3b8; padding: 24px 0; font-size: 0.95rem;">
           아직 기록이 없습니다.
         </p>
       {% endif %}

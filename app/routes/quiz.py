@@ -68,6 +68,7 @@ def start():
     session["q_ids"] = q_ids
     session["answers"] = []
     session["q_index"] = 0
+    session["started_at"] = datetime.now().timestamp()
     session.modified = True
     return redirect(url_for("quiz.quiz"))
 
@@ -127,14 +128,15 @@ def result():
 
     score = scoring.calculate_score(questions, answers)
     weak_tags = analysis.find_weak_tags(questions, answers)
+    duration_seconds = int(datetime.now().timestamp() - session.get("started_at", datetime.now().timestamp()))
 
     user_id = session.get("user_id")
     nickname = session.get("nickname", "")
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     db.execute(
-        "INSERT INTO attempts (user_id, score, weak_tags, created_at) VALUES (?, ?, ?, ?)",
-        (user_id, score, ",".join(weak_tags), now),
+        "INSERT INTO attempts (user_id, score, weak_tags, duration_seconds, created_at) VALUES (?, ?, ?, ?, ?)",
+        (user_id, score, ",".join(weak_tags), duration_seconds, now),
     )
 
     difficulty = session.get("difficulty", "")
@@ -145,13 +147,20 @@ def result():
 
     if existing is None:
         db.execute(
-            "INSERT INTO hall_of_fame (nickname, best_score, updated_at, difficulty) VALUES (?, ?, ?, ?)",
-            (nickname, score, now, difficulty),
+            "INSERT INTO hall_of_fame (nickname, best_score, best_duration_seconds, updated_at, difficulty) VALUES (?, ?, ?, ?, ?)",
+            (nickname, score, duration_seconds, now, difficulty),
         )
     elif score > existing["best_score"]:
         db.execute(
-            "UPDATE hall_of_fame SET best_score = ?, updated_at = ?, difficulty = ? WHERE nickname = ?",
-            (score, now, difficulty, nickname),
+            "UPDATE hall_of_fame SET best_score = ?, best_duration_seconds = ?, updated_at = ?, difficulty = ? WHERE nickname = ?",
+            (score, duration_seconds, now, difficulty, nickname),
+        )
+    elif score == existing["best_score"] and (
+        existing["best_duration_seconds"] == 0 or duration_seconds < existing["best_duration_seconds"]
+    ):
+        db.execute(
+            "UPDATE hall_of_fame SET best_duration_seconds = ?, updated_at = ?, difficulty = ? WHERE nickname = ?",
+            (duration_seconds, now, difficulty, nickname),
         )
 
     db.commit()

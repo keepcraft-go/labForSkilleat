@@ -51,7 +51,7 @@
       <h2>{{ question["question"] }}</h2>
 
       <form action="/quiz/quiz" method="post">
-        <div class="option">
+        <label class="option">
           <input 
             type="radio" 
             id="choice_a"
@@ -59,38 +59,38 @@
             value="A" 
             required 
           />
-          <label for="choice_a">{{ question["choice_a"] }}</label>
-        </div>
+          <span>{{ question["choice_a"] }}</span>
+        </label>
 
-        <div class="option">
+        <label class="option">
           <input 
             type="radio" 
             id="choice_b"
             name="answer" 
             value="B" 
           />
-          <label for="choice_b">{{ question["choice_b"] }}</label>
-        </div>
+          <span>{{ question["choice_b"] }}</span>
+        </label>
 
-        <div class="option">
+        <label class="option">
           <input 
             type="radio" 
             id="choice_c"
             name="answer" 
             value="C" 
           />
-          <label for="choice_c">{{ question["choice_c"] }}</label>
-        </div>
+          <span>{{ question["choice_c"] }}</span>
+        </label>
 
-        <div class="option">
+        <label class="option">
           <input 
             type="radio" 
             id="choice_d"
             name="answer" 
             value="D" 
           />
-          <label for="choice_d">{{ question["choice_d"] }}</label>
-        </div>
+          <span>{{ question["choice_d"] }}</span>
+        </label>
 
         <button type="submit">다음</button>
       </form>
